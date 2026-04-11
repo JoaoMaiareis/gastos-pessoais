@@ -2,7 +2,7 @@
 name = "gastos-pessoais"
 version = "1.0.0"
 description = "Gerenciador de gastos pessoais via linha de comando"
-authors = [{ name = "Seu Nome", email = "seu@email.com" }]
+authors = [{ name = "JoaoMaiareis", email = "joaomaiarais@email.com" }]
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
@@ -23,4 +23,4 @@ line-length = 88
 target-version = "py311"
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "I"]
+select = ["E", "F", "W"]
