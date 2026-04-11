@@ -1,6 +1,6 @@
 # 💰 Gerenciador de Gastos Pessoais
 
-![CI](https://github.com/SEU_USUARIO/gastos-pessoais/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/JoaoMaiareis/gastos-pessoais/actions/workflows/ci.yml/badge.svg)
 ![Versão](https://img.shields.io/badge/versão-1.0.0-blue)
 ![Python](https://img.shields.io/badge/python-3.11+-yellow)
 
@@ -107,8 +107,9 @@ ruff check .
 ## Autor
 
 Joao Maia Reis
-- GitHub: [@SEU_USUARIO](https://github.com/SEU_USUARIO)
+- GitHub: [@JoaoMaiareis](https://github.com/JoaoMaiareis)
 
 ## Repositório
 
-[https://github.com/SEU_USUARIO/gastos-pessoais](https://github.com/SEU_USUARIO/gastos-pessoais)
+[https://github.com/JoaoMaiareis/gastos-pessoais](https://github.com/JoaoMaiareis
+/gastos-pessoais)
