@@ -43,7 +43,7 @@ depender de planilhas ou aplicativos complexos.
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/SEU_USUARIO/gastos-pessoais.git
+git clone https://github.com/JoaoMaiareis/gastos-pessoais.git
 cd gastos-pessoais
 
 # 2. (Opcional) Crie e ative um ambiente virtual
