@@ -1,7 +1,6 @@
 """Testes automatizados para o módulo manager."""
 
 import pytest
-
 from src.manager import (
     adicionar_gasto,
     calcular_total,

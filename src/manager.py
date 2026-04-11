@@ -4,7 +4,14 @@ import json
 import os
 from datetime import datetime
 
-CATEGORIAS_VALIDAS = ["alimentação", "transporte", "saúde", "lazer", "educação", "outros"]
+CATEGORIAS_VALIDAS = [
+    "alimentação",
+    "transporte",
+    "saúde",
+    "lazer",
+    "educação",
+    "outros",
+]
 
 
 def carregar_dados(caminho: str) -> list[dict]:
