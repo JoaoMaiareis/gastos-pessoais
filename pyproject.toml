@@ -1,0 +1,26 @@
+[project]
+name = "gastos-pessoais"
+version = "1.0.0"
+description = "Gerenciador de gastos pessoais via linha de comando"
+authors = [{ name = "Seu Nome", email = "seu@email.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+gastos = "main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends.legacy:build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
