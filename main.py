@@ -13,6 +13,13 @@ from src.manager import (
     resumo_por_categoria,
     salvar_dados,
 )
+from src.viacep import (
+    CEPInvalidoError,
+    CEPNaoEncontradoError,
+    ViaCEPError,
+    consultar_cep,
+    formatar_endereco,
+)
 
 ARQUIVO_DADOS = "gastos.json"
 
@@ -75,6 +82,30 @@ def cmd_resumo(_args: argparse.Namespace) -> None:
     print(f"  {'TOTAL':<14}  R$ {total:>8.2f}\n")
 
 
+def cmd_cep(args: argparse.Namespace) -> None:
+    """Consulta um CEP na API ViaCEP e exibe o endereço correspondente."""
+    print(f"🔍 Consultando CEP {args.cep}...")
+    try:
+        dados = consultar_cep(args.cep)
+        print(f"\n📍 Endereço encontrado:")
+        print(f"   CEP:          {dados.get('cep', '-')}")
+        print(f"   Logradouro:   {dados.get('logradouro', '-')}")
+        print(f"   Complemento:  {dados.get('complemento', '-') or '-'}")
+        print(f"   Bairro:       {dados.get('bairro', '-')}")
+        print(f"   Cidade/UF:    {dados.get('localidade', '-')}/{dados.get('uf', '-')}")
+        print(f"   DDD:          {dados.get('ddd', '-')}")
+        print(f"\n   ↳ {formatar_endereco(dados)}\n")
+    except CEPInvalidoError as e:
+        print(f"❌ CEP inválido: {e}")
+        sys.exit(1)
+    except CEPNaoEncontradoError as e:
+        print(f"❌ {e}")
+        sys.exit(1)
+    except ViaCEPError as e:
+        print(f"❌ Erro ao consultar API: {e}")
+        sys.exit(1)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="gastos",
@@ -110,6 +141,11 @@ def build_parser() -> argparse.ArgumentParser:
     # resumo
     p_res = subparsers.add_parser("resumo", help="Ver resumo por categoria")
     p_res.set_defaults(func=cmd_resumo)
+
+    # cep
+    p_cep = subparsers.add_parser("cep", help="Consultar endereço por CEP (ViaCEP)")
+    p_cep.add_argument("cep", type=str, help="CEP a consultar (ex: 01310-100)")
+    p_cep.set_defaults(func=cmd_cep)
 
     return parser
 
