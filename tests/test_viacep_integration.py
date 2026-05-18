@@ -14,7 +14,6 @@ Para pular os testes que fazem chamadas reais à API (útil em CI sem rede):
 
 import json
 import urllib.error
-from io import BytesIO
 from unittest.mock import MagicMock, patch
 
 import pytest
