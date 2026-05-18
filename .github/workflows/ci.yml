@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "entrega-intermediaria"]
   pull_request:
     branches: ["main"]
 
@@ -27,5 +27,8 @@ jobs:
       - name: Rodar lint (ruff)
         run: ruff check .
 
-      - name: Rodar testes (pytest)
-        run: pytest --tb=short -v
+      - name: Rodar testes unitários (pytest)
+        run: pytest tests/test_manager.py --tb=short -v
+
+      - name: Rodar testes de integração (pytest)
+        run: pytest tests/test_viacep_integration.py --tb=short -v
